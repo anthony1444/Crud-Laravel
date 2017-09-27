@@ -54,8 +54,11 @@ class PruebaController extends Controller
     public function store(Request $request)
     {
         
+
+        $otros_datos=array('mascota'=> $request->mascota,'vehiculo'=> $request->vehiculo,'bicicleta'=>$request->bicicleta);
         $requestData = $request->all();
-        
+        $salida = array_slice($requestData,0,10);
+        $salida['otros_datos'] =json_encode($otros_datos);  
 
         if ($request->hasFile('documento')) {
             foreach($request['documento'] as $file){
@@ -69,7 +72,8 @@ class PruebaController extends Controller
             }
         }
 
-        Prueba::create($requestData);
+
+        Prueba::create($salida);
 
         Session::flash('flash_message', 'Prueba added!');
 
@@ -149,7 +153,7 @@ class PruebaController extends Controller
     {
         Prueba::destroy($id);
 
-        Session::flash('flash_message', 'Prueba deleted!');
+        Session::flash('flash_message', 'Prueba ELiminada!');
 
         return redirect('admin/prueba');
     }

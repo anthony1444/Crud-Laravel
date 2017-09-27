@@ -10,7 +10,7 @@
                     <div class="panel-heading">Prueba</div>
                     <div class="panel-body">
                         <a href="{{ url('/admin/prueba/create') }}" class="btn btn-success btn-sm" title="Add New Prueba">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Agregar Nuevo
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/admin/prueba', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
