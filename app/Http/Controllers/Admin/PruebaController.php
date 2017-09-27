@@ -24,6 +24,7 @@ class PruebaController extends Controller
         if (!empty($keyword)) {
             $prueba = Prueba::where('nombre', 'LIKE', "%$keyword%")
 				->orWhere('apellido', 'LIKE', "%$keyword%")
+				->orWhere('documento', 'LIKE', "%$keyword%")
 				->orWhere('otros_datos', 'LIKE', "%$keyword%")
 				->paginate($perPage);
         } else {
@@ -55,6 +56,19 @@ class PruebaController extends Controller
         
         $requestData = $request->all();
         
+
+        if ($request->hasFile('documento')) {
+            foreach($request['documento'] as $file){
+                $uploadPath = public_path('/uploads/documento');
+
+                $extension = $file->getClientOriginalExtension();
+                $fileName = rand(11111, 99999) . '.' . $extension;
+
+                $file->move($uploadPath, $fileName);
+                $requestData['documento'] = $fileName;
+            }
+        }
+
         Prueba::create($requestData);
 
         Session::flash('flash_message', 'Prueba added!');
@@ -103,6 +117,19 @@ class PruebaController extends Controller
         
         $requestData = $request->all();
         
+
+        if ($request->hasFile('documento')) {
+            foreach($request['documento'] as $file){
+                $uploadPath = public_path('/uploads/documento');
+
+                $extension = $file->getClientOriginalExtension();
+                $fileName = rand(11111, 99999) . '.' . $extension;
+
+                $file->move($uploadPath, $fileName);
+                $requestData['documento'] = $fileName;
+            }
+        }
+
         $prueba = Prueba::findOrFail($id);
         $prueba->update($requestData);
 

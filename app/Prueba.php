@@ -25,7 +25,7 @@ class Prueba extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'apellido', 'otros_datos'];
+    protected $fillable = ['nombre', 'apellido', 'documento', 'otros_datos'];
 
     
 }

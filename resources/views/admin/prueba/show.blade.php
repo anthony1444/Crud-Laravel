@@ -33,7 +33,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $prueba->id }}</td>
                                     </tr>
-                                    <tr><th> Nombre </th><td> {{ $prueba->nombre }} </td></tr><tr><th> Apellido </th><td> {{ $prueba->apellido }} </td></tr><tr><th> Otros Datos </th><td> {{ $prueba->otros_datos }} </td></tr>
+                                    <tr><th> Nombre </th><td> {{ $prueba->nombre }} </td></tr><tr><th> Apellido </th><td> {{ $prueba->apellido }} </td></tr><tr><th> Documento </th><td> {{ $prueba->documento }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

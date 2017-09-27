@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 
 Route::resource('admin/prueba', 'Admin\\PruebaController');
+Route::resource('admin/prueba', 'Admin\\PruebaController');

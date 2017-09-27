@@ -10,7 +10,7 @@
                     <div class="panel-heading">Prueba</div>
                     <div class="panel-body">
                         <a href="{{ url('/admin/prueba/create') }}" class="btn btn-success btn-sm" title="Add New Prueba">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Añadir Nuevo
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/admin/prueba', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
@@ -30,14 +30,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nombre</th><th>Apellido</th><th>Otros Datos(En Json)</th><th>Actions</th>
+                                        <th>ID</th><th>Nombre</th><th>Apellido</th><th>Documento</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($prueba as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->nombre }}</td><td>{{ $item->apellido }}</td><td>{{ $item->otros_datos }}</td>
+                                        <td>{{ $item->nombre }}</td><td>{{ $item->apellido }}</td><td>{{ $item->documento }}</td>
                                         <td>
                                             <a href="{{ url('/admin/prueba/' . $item->id) }}" title="View Prueba"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
                                             <a href="{{ url('/admin/prueba/' . $item->id . '/edit') }}" title="Edit Prueba"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
@@ -46,11 +46,11 @@
                                                 'url' => ['/admin/prueba', $item->id],
                                                 'style' => 'display:inline'
                                             ]) !!}
-                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar', array(
+                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> ELiminar', array(
                                                         'type' => 'submit',
                                                         'class' => 'btn btn-danger btn-xs',
                                                         'title' => 'Delete Prueba',
-                                                        'onclick'=>'return confirm("EStas Seguro de Eliminar?")'
+                                                        'onclick'=>'return confirm("Confirm delete?")'
                                                 )) !!}
                                             {!! Form::close() !!}
                                         </td>
